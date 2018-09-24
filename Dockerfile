@@ -2,7 +2,7 @@ ARG RUBY_IMAGE
 
 FROM $RUBY_IMAGE
 
-RUN apk update && apk add --no-cache git less build-base tzdata
+RUN apk update && apk add --no-cache git less build-base tzdata openssh-client
 
 RUN adduser -u 1000 -D app && \
   mkdir -p /app /vendor/bundle && \
