@@ -11,6 +11,9 @@ services:
       - .:/app:cached
       - vendor-ruby:/vendor
       - home:/home/app
+      - $HOME/.gitconfig:/home/app/.gitconfig:ro
+      - $HOME/.ssh:/home/app/.ssh:ro
+      - $HOME/.gem:/home/app/.gem
   ruby-2-5-rails-5-2:
     <<: *ruby
   ruby-2-5-rails-5-1:
