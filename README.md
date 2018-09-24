@@ -1,28 +1,20 @@
 # ActionDispatch::Http::ContentDisposition
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/action_dispatch/http/content_disposition`. To experiment with that code, run `bin/console` for an interactive prompt.
+Are you having trouble about garbled filename in `send_file` or `send_data`?
 
-TODO: Delete this and the text above, and describe your gem
+[Rails 6 will have the fix!](https://github.com/rails/rails/pull/33829)
 
-## Installation
+This gem contains a back port for old rails (4.2 ~ 5.2).
 
-Add this line to your application's Gemfile:
+## Usage
+
+Just add this gem to your Gemfile:
 
 ```ruby
 gem 'action_dispatch-http-content_disposition'
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install action_dispatch-http-content_disposition
-
-## Usage
-
-TODO: Write usage instructions here
+This gem applies monkey patch automatically.
 
 ## Development
 
@@ -32,7 +24,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/action_dispatch-http-content_disposition.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[mtsmfm]/action_dispatch-http-content_disposition.
 
 ## License
 
