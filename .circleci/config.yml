@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  test-ruby-2-5-rails-5-2: &test
+    machine: true
+    environment:
+      SERVICE_NAME: ruby-2-5-rails-5-2
+    steps:
+      - checkout
+      - run: docker-compose build $SERVICE_NAME
+      - run: docker-compose run $SERVICE_NAME bundle install
+      - run: docker-compose run $SERVICE_NAME bundle exec rake test
+  test-ruby-2-5-rails-5-1:
+    <<: *test
+    environment:
+      SERVICE_NAME: ruby-2-5-rails-5-1
+  test-ruby-2-5-rails-5-0:
+    <<: *test
+    environment:
+      SERVICE_NAME: ruby-2-5-rails-5-0
+  test-ruby-2-5-rails-4-2:
+    <<: *test
+    environment:
+      SERVICE_NAME: ruby-2-5-rails-4-2
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test-ruby-2-5-rails-5-2
+      - test-ruby-2-5-rails-5-1
+      - test-ruby-2-5-rails-5-0
+      - test-ruby-2-5-rails-4-2

@@ -1,0 +1,30 @@
+version: "3"
+services:
+  ruby: &ruby
+    build:
+      context: .
+      args:
+        RUBY_IMAGE: ruby:2.5.1-alpine
+    environment:
+      BUNDLE_GEMFILE: /app/Gemfile-rails-5-2
+    volumes:
+      - .:/app:cached
+      - vendor-ruby:/vendor
+      - home:/home/app
+  ruby-2-5-rails-5-2:
+    <<: *ruby
+  ruby-2-5-rails-5-1:
+    <<: *ruby
+    environment:
+      BUNDLE_GEMFILE: /app/Gemfile-rails-5-1
+  ruby-2-5-rails-5-0:
+    <<: *ruby
+    environment:
+      BUNDLE_GEMFILE: /app/Gemfile-rails-5-0
+  ruby-2-5-rails-4-2:
+    <<: *ruby
+    environment:
+      BUNDLE_GEMFILE: /app/Gemfile-rails-4-2
+volumes:
+  ? home
+  ? vendor-ruby
